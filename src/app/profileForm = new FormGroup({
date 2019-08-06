@@ -1,0 +1,8 @@
+profileForm = new FormGroup({
+    detail: new FormControl(''),
+    responsible: new FormControl(''),
+    priority: new FormControl(''),
+    status: new FormControl('')
+  });
+
+

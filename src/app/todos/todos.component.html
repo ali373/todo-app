@@ -1,0 +1,48 @@
+<h1>Todos list</h1>
+<!-- <div><span>Description:</span>{{todo.Descrition}}</div>
+<div><span>Responsible:</span>{{todo.Responsible}}</div>
+<div><span>Priority:</span>{{todo.Priority}}</div>
+<div><span>Action:</span>{{todo.Action}}</div> -->
+<!-- <div>
+	<ul>
+		<li *ngFor="let todo of myTodos">{{todo.todo_responsible}}</li>
+	</ul>
+</div> -->
+
+<table class='  table table-dark table-hover table-striped'>
+	<thead class="thead-light">
+		<tr>
+			<th scope="col">Id</th>
+			<th scope="col">Description</th>
+			<th scope="col">Responsible</th>
+			<th scope="col">Priority</th>
+			<th scope="col">Completed</th>
+			<th scope="col" colspan="2" align="right">Action</th>
+		
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr *ngFor="let todo of myTodos">
+			<td scope="row">{{todo.id}}</td>
+			<td scope="row"> {{todo.todo_description}} </td>
+			<td scope="row">{{todo.todo_responsible}}</td>
+			<td scope="row">{{todo.todo_priority}}</td>
+			<td scope="row">{{todo.todo_completed}}</td>
+			<td scope="row"><button [routerLink]="['/Todos/updateTodos', todo.id]" class="btn btn-info" >Edit</button></td>
+			<td scope="row">
+				<button type="button" class="btn btn-danger" (click)="action(todo.id)"  data-container="body">Delete</button>
+				
+			</td>   
+		</tr>
+	</tbody>
+</table>
+
+
+<!-- action(id):void{
+	    if(confirm("Are you sure to want to delete this entry ?")){
+	    	this.todoService.deleteTodo(id).subscribe(data => {
+    			console.log(data)
+    		});
+	    }
+    } -->

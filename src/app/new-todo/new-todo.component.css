@@ -1,0 +1,20 @@
+input {
+  width: 90%;
+  border: 3px solid  #a6a6a6;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 11px 50px;
+}
+.parent{
+	text-align: center;
+}
+
+.child{
+	display: inline-block;
+}
+
+label{
+	/*text-align: left;*/
+	/*text-indent: 25px;*/
+	float: left;
+}

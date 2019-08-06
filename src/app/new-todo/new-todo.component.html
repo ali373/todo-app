@@ -1,0 +1,90 @@
+
+<h2>Add new Todo <span><button id="007" [routerLink]="['/Todos/allTodos']" 
+style="float: right;" class="btn btn-info">Visit all Todos</button></span></h2>
+<br>
+<div class="parent">
+  <div class="child">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" >
+      <div class="form-group">
+        <label>
+          Detail:
+        </label>
+        <input type="text" [formControl]="detail" formControlName="detail" class="form-control" 
+        [ngClass]="{ 'is-invalid': submitted && f.detail.errors }">
+        <div *ngIf="submitted && f.detail.errors" class="invalid-feedback">
+            <div *ngIf="f.detail.errors.required">Detail is required</div>
+            <div *ngIf="f.detail.errors.pattern">Only alpha numeric numbers are allowed</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>
+          Responsible:
+        </label>
+        <input type="text" formControlName="responsible"
+        class="form-control" 
+        [ngClass]="{ 'is-invalid': submitted && f.responsible.errors }"
+        >
+        <div *ngIf="submitted && f.responsible.errors" class="invalid-feedback">
+          <div *ngIf="f.responsible.errors.required">responsible is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>
+          Priority:
+        </label>
+        <input type="text" formControlName="priority"
+        class="form-control" 
+        [ngClass]="{ 'is-invalid': submitted && f.priority.errors }"
+        >
+        <div *ngIf="submitted && f.priority.errors" class="invalid-feedback">
+          <div *ngIf="f.priority.errors.required">priority is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>
+        Status:
+        </label>
+        <input type="number" formControlName="status"
+        class="form-control" 
+        [ngClass]="{ 'is-invalid': submitted && f.status.errors }"
+        >
+        <div *ngIf="submitted && f.status.errors" class="invalid-feedback">
+          <div *ngIf="f.status.errors.required">status is required</div>
+          <div *ngIf="f.status.errors.min">minimum value is 0</div>
+          <div *ngIf="f.status.errors.max">maximum value is 1</div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-info" >Submit</button>
+    </form>
+  </div>
+</div>
+<br/>
+
+<!-- <button [routerLink]="['/Todos/allTodos']">All Todos</button> -->
+
+<br/>
+<!-- <button (click)="list2()">getTodos</button> -->
+<!-- <br/>
+<table style="width:100% ">
+  <tr>
+    <th>Id</th>
+    <th>Description</th>
+    <th>Responsible</th>
+    <th>Priority</th>
+    <th>Completed</th>
+    <th>Action</th>
+
+  </tr>
+  <tr *ngFor="let todos of myTodos">
+    <td>{{todos.id}}</td>
+    <td>{{todos.todo_description}}</td>
+    <td>{{todos.todo_responsible}}</td>
+    <td>{{todos.todo_priority}}</td>
+    <td>{{todos.todo_completed}}</td>
+    <td><button (click)="action(todos.id)">Delete</button></td>
+  </tr>
+</table> -->
